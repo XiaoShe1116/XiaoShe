@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Swarm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-noise"></div>
+
+  <main class="shell">
+    <section class="hero card">
+      <div class="hero-copy-block">
+        <div class="hero-badge">SWARM OPERATING COMPANY</div>
+        <h1 class="title-main">Agent Swarm</h1>
+        <p class="hero-copy">
+          以 Agent Swarm 重构企业执行系统。首页只保留总控视角，组织架构、SOP 与员工详情全部通过可点击入口与弹窗展开。
+        </p>
+        <div class="hero-actions">
+          <button class="primary-cta" data-open-modal="architectureModal">查看公司架构</button>
+          <button class="ghost-cta" data-open-modal="sopModal">查看 SOP</button>
+          <button class="ghost-cta" data-open-modal="teamModal">查看员工介绍</button>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="hero-metrics">
+          <div class="metric card-lite">
+            <span class="metric-label">总经理</span>
+            <strong>OpenClaw</strong>
+            <span>统一调度 / 品控 / 对外交付</span>
+          </div>
+          <div class="metric card-lite">
+            <span class="metric-label">员工规模</span>
+            <strong>15</strong>
+            <span>覆盖管理、执行、飞书协作</span>
+          </div>
+          <div class="metric card-lite">
+            <span class="metric-label">标准流程</span>
+            <strong>7</strong>
+            <span>理解 → 拆解 → 分派 → 验收 → 交付</span>
+          </div>
+          <div class="metric card-lite">
+            <span class="metric-label">协作模式</span>
+            <strong>Swarm</strong>
+            <span>并行推进，统一总控</span>
+          </div>
+        </div>
+
+        <div class="hero-diagram card-lite">
+          <div class="diagram-core">OpenClaw</div>
+          <div class="diagram-node n1">Planner</div>
+          <div class="diagram-node n2">Researcher</div>
+          <div class="diagram-node n3">Executor</div>
+          <div class="diagram-node n4">QA</div>
+          <div class="diagram-node n5">Delivery</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="entry-card card">
+        <div>
+          <p class="section-tag">01 / ORGANIZATION</p>
+          <h2>公司架构</h2>
+          <p>查看总经理、管理层、质量岗、一线执行与飞书协作岗位之间的组织关系。</p>
+        </div>
+        <ul class="entry-points">
+          <li>组织层级</li>
+          <li>汇报关系</li>
+          <li>协作原则</li>
+        </ul>
+        <button class="entry-action" data-open-modal="architectureModal">打开架构总览</button>
+      </article>
+
+      <article class="entry-card card">
+        <div>
+          <p class="section-tag">02 / SOP</p>
+          <h2>公司 SOP</h2>
+          <p>把复杂任务标准化成一条稳定流水线，确保每次执行都能复用、验收、交付。</p>
+        </div>
+        <ul class="entry-points">
+          <li>任务理解</li>
+          <li>角色分配</li>
+          <li>质量验收</li>
+        </ul>
+        <button class="entry-action" data-open-modal="sopModal">打开 SOP 弹窗</button>
+      </article>
+
+      <article class="entry-card card wide-card">
+        <div>
+          <p class="section-tag">03 / TEAM</p>
+          <h2>员工介绍</h2>
+          <p>每位员工都是独立工种。先看团队总览，再点开单个角色，继续查看二级详情。</p>
+        </div>
+        <div class="team-preview">
+          <button class="mini-member" data-open-modal="memberModal" data-member-id="swarm-coordinator">
+            <strong>swarm-coordinator</strong>
+            <span>协调主管</span>
+          </button>
+          <button class="mini-member" data-open-modal="memberModal" data-member-id="planner">
+            <strong>planner</strong>
+            <span>规划师</span>
+          </button>
+          <button class="mini-member" data-open-modal="memberModal" data-member-id="code-executor">
+            <strong>code-executor</strong>
+            <span>编码工程师</span>
+          </button>
+          <button class="mini-member" data-open-modal="memberModal" data-member-id="feishu-doc">
+            <strong>feishu-doc</strong>
+            <span>文档管理员</span>
+          </button>
+        </div>
+        <button class="entry-action" data-open-modal="teamModal">打开员工总览</button>
+      </article>
+    </section>
+
+    <section class="overview-strip card">
+      <div class="overview-head">
+        <p class="section-tag">CENTRAL CONSOLE</p>
+        <h2>首页是中控台，不是长页面堆叠</h2>
+        <p>把高频信息收在第一屏，把详细内容收进弹窗，用户可以更快找到入口，也不会被长滚动打断节奏。</p>
+      </div>
+      <div class="use-grid">
+        <article class="use-card card-lite">
+          <h3>复杂调研</h3>
+          <p>研究、验证、整理由不同角色并行推进。</p>
+        </article>
+        <article class="use-card card-lite">
+          <h3>网页项目</h3>
+          <p>从规划到实现到验收，形成完整交付链路。</p>
+        </article>
+        <article class="use-card card-lite">
+          <h3>飞书协作</h3>
+          <p>文档、日历、多维表格、消息在同一组织体系中联动。</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p class="footer-title">让组织能力，像产品一样被设计与复制。</p>
+      <p class="footer-copy">Agent Swarm · A structured operating interface for execution, quality, and delivery.</p>
+    </footer>
+  </main>
+
+  <div class="modal-layer hidden" id="modalLayer" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <section class="modal card hidden" id="architectureModal" role="dialog" aria-modal="true" aria-labelledby="architectureTitle">
+      <button class="modal-close" aria-label="关闭弹窗" data-close-modal>&times;</button>
+      <div class="modal-head">
+        <p class="section-tag">ORGANIZATION</p>
+        <h2 id="architectureTitle">公司架构</h2>
+        <p>以总控为中枢，以专业工种为执行单元，以质量和交付为闭环，构成可持续运转的智能协作组织。</p>
+      </div>
+
+      <div class="org-tree card-lite">
+        <div class="org-node boss">老板 / Owner</div>
+        <div class="org-line"></div>
+        <div class="org-node ceo">OpenClaw · 总经理</div>
+        <div class="org-line"></div>
+        <div class="org-grid">
+          <div class="org-col">
+            <h3>管理调度</h3>
+            <ul>
+              <li>swarm-coordinator</li>
+            </ul>
+          </div>
+          <div class="org-col">
+            <h3>规划与质量</h3>
+            <ul>
+              <li>planner</li>
+              <li>code-reviewer</li>
+              <li>security-reviewer</li>
+              <li>tdd-guide</li>
+              <li>qa-auditor</li>
+              <li>delivery-manager</li>
+            </ul>
+          </div>
+          <div class="org-col">
+            <h3>一线执行</h3>
+            <ul>
+              <li>code-executor</li>
+              <li>browser-operator</li>
+              <li>bitable-operator</li>
+              <li>message-operator</li>
+              <li>researcher</li>
+            </ul>
+          </div>
+          <div class="org-col">
+            <h3>飞书协作</h3>
+            <ul>
+              <li>feishu-calendar</li>
+              <li>feishu-doc</li>
+              <li>docs-lookup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <article class="card-lite info-card">
+          <h3>管理人：OpenClaw</h3>
+          <p>理解目标、定义路径、调用角色并控制整体质量。对外是统一接口，对内是节奏、标准与协作秩序的制定者。</p>
+        </article>
+        <article class="card-lite info-card">
+          <h3>组织原则</h3>
+          <ul>
+            <li>专业的人做专业的事</li>
+            <li>能并行就并行</li>
+            <li>必须经过质检</li>
+            <li>不把半成品直接交付</li>
+          </ul>
+        </article>
+        <article class="card-lite info-card">
+          <h3>一句话定义</h3>
+          <p>不是堆人，而是构建协同网络。让组织像系统一样高效运转。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="modal card hidden" id="sopModal" role="dialog" aria-modal="true" aria-labelledby="sopTitle">
+      <button class="modal-close" aria-label="关闭弹窗" data-close-modal>&times;</button>
+      <div class="modal-head">
+        <p class="section-tag">STANDARD OPERATING PROCEDURE</p>
+        <h2 id="sopTitle">公司 SOP</h2>
+        <p>所有复杂任务都按同一条流水线运行：先理解、再拆解、再协同、再验收，最终形成可直接使用的交付物。</p>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card card-lite">
+          <span>01</span>
+          <h3>任务理解</h3>
+          <p>准确识别目标、约束条件与交付标准，先把问题看清，再决定如何出手。</p>
+        </article>
+        <article class="step-card card-lite">
+          <span>02</span>
+          <h3>任务拆解</h3>
+          <p>将复杂需求拆分为可执行、可并行、可验证的任务单元，让复杂性被结构化。</p>
+        </article>
+        <article class="step-card card-lite">
+          <span>03</span>
+          <h3>角色分配</h3>
+          <p>根据任务属性调用最合适的 Agent，让专业问题交给专业角色处理。</p>
+        </article>
+        <article class="step-card card-lite">
+          <span>04</span>
+          <h3>并发执行</h3>
+          <p>多个 Agent 同步推进，不做线性等待，而是系统级协同。</p>
+        </article>
+        <article class="step-card card-lite">
+          <span>05</span>
+          <h3>质量验收</h3>
+          <p>由质量角色进行测试、核验与一致性检查，确保每一部分都经得起复查。</p>
+        </article>
+        <article class="step-card card-lite">
+          <span>06</span>
+          <h3>主控复查</h3>
+          <p>从全局视角进行校正，确认方向统一、逻辑闭环、风险可控。</p>
+        </article>
+        <article class="step-card card-lite">
+          <span>07</span>
+          <h3>整理交付</h3>
+          <p>把分散产出整合成老板可以直接阅读、直接决策、直接使用的结果。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="modal card hidden" id="teamModal" role="dialog" aria-modal="true" aria-labelledby="teamTitle">
+      <button class="modal-close" aria-label="关闭弹窗" data-close-modal>&times;</button>
+      <div class="modal-head sticky-head">
+        <div>
+          <p class="section-tag">TEAM</p>
+          <h2 id="teamTitle">员工介绍</h2>
+          <p>15 位专业角色组成完整执行链路。先筛选，再点开单个员工进入详情。</p>
+        </div>
+        <div class="team-filters">
+          <button class="filter-chip active" data-filter="all">全部</button>
+          <button class="filter-chip" data-filter="management">管理调度</button>
+          <button class="filter-chip" data-filter="quality">规划与质量</button>
+          <button class="filter-chip" data-filter="execution">一线执行</button>
+          <button class="filter-chip" data-filter="collab">飞书协作</button>
+        </div>
+      </div>
+
+      <div class="team-grid">
+        <button class="member card-lite" data-category="management" data-open-modal="memberModal" data-member-id="swarm-coordinator">
+          <strong>swarm-coordinator</strong>
+          <span>协调主管</span>
+          <p>负责全局协调与任务调度，确保多角色协同一致、高效、稳定。</p>
+        </button>
+        <button class="member card-lite" data-category="quality" data-open-modal="memberModal" data-member-id="planner">
+          <strong>planner</strong>
+          <span>规划师</span>
+          <p>负责需求分析与执行规划，将复杂目标转化为清晰可落地的行动路径。</p>
+        </button>
+        <button class="member card-lite" data-category="quality" data-open-modal="memberModal" data-member-id="code-reviewer">
+          <strong>code-reviewer</strong>
+          <span>代码审查员</span>
+          <p>从结构、规范与可维护性角度提升实现水准。</p>
+        </button>
+        <button class="member card-lite" data-category="quality" data-open-modal="memberModal" data-member-id="security-reviewer">
+          <strong>security-reviewer</strong>
+          <span>安全审查员</span>
+          <p>识别安全风险与权限边界，确保系统方案足够稳健。</p>
+        </button>
+        <button class="member card-lite" data-category="quality" data-open-modal="memberModal" data-member-id="tdd-guide">
+          <strong>tdd-guide</strong>
+          <span>测试教练</span>
+          <p>设计测试策略与验证路径，让实现从一开始就具备可验证性。</p>
+        </button>
+        <button class="member card-lite" data-category="quality" data-open-modal="memberModal" data-member-id="qa-auditor">
+          <strong>qa-auditor</strong>
+          <span>最终质检员</span>
+          <p>对结果完整性、准确性与一致性进行最终把关。</p>
+        </button>
+        <button class="member card-lite" data-category="quality" data-open-modal="memberModal" data-member-id="delivery-manager">
+          <strong>delivery-manager</strong>
+          <span>交付经理</span>
+          <p>将分散产出整理为可直接使用的最终版本。</p>
+        </button>
+        <button class="member card-lite" data-category="execution" data-open-modal="memberModal" data-member-id="code-executor">
+          <strong>code-executor</strong>
+          <span>编码工程师</span>
+          <p>负责功能实现与工程落地，把需求快速转化为可运行成果。</p>
+        </button>
+        <button class="member card-lite" data-category="execution" data-open-modal="memberModal" data-member-id="browser-operator">
+          <strong>browser-operator</strong>
+          <span>网页操作员</span>
+          <p>负责网页交互与浏览器自动化执行，完成面向界面的操作与验证。</p>
+        </button>
+        <button class="member card-lite" data-category="execution" data-open-modal="memberModal" data-member-id="bitable-operator">
+          <strong>bitable-operator</strong>
+          <span>多维表格操作员</span>
+          <p>负责多维表格的数据结构、记录维护与流程化管理。</p>
+        </button>
+        <button class="member card-lite" data-category="execution" data-open-modal="memberModal" data-member-id="message-operator">
+          <strong>message-operator</strong>
+          <span>消息执行员</span>
+          <p>负责消息触达、通知编排与沟通链路执行。</p>
+        </button>
+        <button class="member card-lite" data-category="execution" data-open-modal="memberModal" data-member-id="researcher">
+          <strong>researcher</strong>
+          <span>研究员</span>
+          <p>负责资料调研、信息提炼与内容支撑，为决策提供高质量输入。</p>
+        </button>
+        <button class="member card-lite" data-category="collab" data-open-modal="memberModal" data-member-id="feishu-calendar">
+          <strong>feishu-calendar</strong>
+          <span>日程管理员</span>
+          <p>负责日程管理、会议编排与时间协调，让协作更精准有序。</p>
+        </button>
+        <button class="member card-lite" data-category="collab" data-open-modal="memberModal" data-member-id="feishu-doc">
+          <strong>feishu-doc</strong>
+          <span>文档管理员</span>
+          <p>负责文档创建、更新与结构化沉淀，确保知识持续可用。</p>
+        </button>
+        <button class="member card-lite" data-category="collab" data-open-modal="memberModal" data-member-id="docs-lookup">
+          <strong>docs-lookup</strong>
+          <span>资料研究员</span>
+          <p>快速从信息库中提取关键依据与上下文。</p>
+        </button>
+      </div>
+    </section>
+
+    <section class="modal card hidden detail-modal" id="memberModal" role="dialog" aria-modal="true" aria-labelledby="memberName">
+      <button class="modal-close" aria-label="关闭弹窗" data-close-modal>&times;</button>
+      <div class="member-detail">
+        <div class="member-detail-head">
+          <p class="section-tag" id="memberCategory">TEAM DETAIL</p>
+          <h2 id="memberName">员工详情</h2>
+          <p id="memberRole" class="member-role"></p>
+          <p id="memberDescription" class="member-description"></p>
+        </div>
+        <div class="member-detail-grid">
+          <article class="card-lite detail-block">
+            <h3>核心职责</h3>
+            <ul id="memberResponsibilities"></ul>
+          </article>
+          <article class="card-lite detail-block">
+            <h3>擅长场景</h3>
+            <ul id="memberScenarios"></ul>
+          </article>
+          <article class="card-lite detail-block full-span">
+            <h3>协作价值</h3>
+            <p id="memberValue"></p>
+          </article>
+        </div>
+        <div class="detail-actions">
+          <button class="ghost-cta" data-open-modal="teamModal">返回员工总览</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
